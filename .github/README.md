@@ -3,18 +3,18 @@ Override annotation targets in your Kotlin projects
 
 # How to develop/debug locally
 
-1. Install Gradle plugin and Kotlin plugin into local Maven repository
+1. Install Gradle and Kotlin plugins into the local Maven repository
 ```sh
 ./gradlew :kotlin-plugin:install :gradle-plugin:install
 ```
 
-2. Import the project to IntelliJ IDEA. The `Debug Kotlin Plugin` should be
-available in Run/Debug configuration box.
+2. Import the project to IntelliJ IDEA (the `Debug Kotlin Plugin` configuration
+should be available in Run/Debug configuration box).
 
 3. Add breakpoints in the `kotlin-plugin` module.
 
 4. Build [the sample project](https://github.com/ktargeter/ktargeter-sample)
-in Debug mode
+with the following command:
 ```sh
 ./gradlew clean build --no-daemon -Dorg.gradle.debug=true \
   -Dkotlin.compiler.execution.strategy="in-process" \
