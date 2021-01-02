@@ -9,5 +9,9 @@ jobs:
         uses: actions/setup-java@v1
         with:
           java-version: 1.8
+      - name: Install to local Maven
+        run: ./gradlew :kotlin-plugin:install :gradle-plugin:install
+      - name: Debug
+        run: ls /home/runner/.m2/repository/
       - name: Build
         run: ./gradlew build

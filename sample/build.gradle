@@ -1,0 +1,41 @@
+buildscript {
+    repositories {
+        mavenCentral()
+        mavenLocal()
+    }
+    dependencies {
+        classpath "ktargeter:gradle-plugin:0.1.0"
+    }
+}
+
+plugins {
+    id 'org.jetbrains.kotlin.jvm'
+}
+
+apply plugin: "ktargeter.plugin"
+
+group 'ktargeter'
+version '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+    mavenLocal()
+}
+
+dependencies {
+    implementation "org.jetbrains.kotlin:kotlin-stdlib"
+}
+
+ktargeter {
+    enabled = true
+    annotations = ["demo.DemoAnnotation"]
+}
+
+jar {
+    manifest {}
+    from {
+        configurations.compileClasspath.collect {
+            it.isDirectory() ? it : zipTree(it)
+        }
+    }
+}

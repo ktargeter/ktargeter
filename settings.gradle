@@ -1,2 +1,4 @@
 rootProject.name = 'ktargeter'
-
+include 'gradle-plugin'
+include 'kotlin-plugin'
+include 'sample'

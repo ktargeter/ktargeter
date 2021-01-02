@@ -1,14 +1,24 @@
 plugins {
-    id 'org.jetbrains.kotlin.jvm' version '1.4.21'
+    id 'org.jetbrains.kotlin.jvm'
+    id "org.jetbrains.kotlin.kapt"
+    id 'java-gradle-plugin'
 }
 
 group 'ktargeter'
-version '0.1.0-SNAPSHOT'
+version '0.1.0'
 
-repositories {
-    mavenCentral()
+gradlePlugin {
+    plugins {
+        simplePlugin {
+            id = "ktargeter.plugin"
+            implementationClass = "ktargeter.KtargeterGradlePlugin"
+        }
+    }
 }
 
 dependencies {
     implementation "org.jetbrains.kotlin:kotlin-stdlib"
+    implementation "org.jetbrains.kotlin:kotlin-gradle-plugin-api:${kotlinVersion}"
+    compileOnly "com.google.auto.service:auto-service:1.0-rc7"
+    kapt "com.google.auto.service:auto-service:1.0-rc7"
 }
