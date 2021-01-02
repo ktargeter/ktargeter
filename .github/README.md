@@ -13,8 +13,11 @@ available in Run/Debug configuration box.
 
 3. Add breakpoints in the `kotlin-plugin` module.
 
-4. Build the sample project in Debug mode
+4. Build [the sample project](https://github.com/ktargeter/ktargeter-sample)
+in Debug mode
 ```sh
-./gradlew :sample:build --no-daemon -Dorg.gradle.debug=true -Dkotlin.compiler.execution.strategy="in-process" -Dkotlin.daemon.jvm.options="-Xdebug,-Xrunjdwp:transport=dt_socket,address=5005,server=y,suspend=n"
+./gradlew clean build --no-daemon -Dorg.gradle.debug=true \
+  -Dkotlin.compiler.execution.strategy="in-process" \
+  -Dkotlin.daemon.jvm.options="-Xdebug,-Xrunjdwp:transport=dt_socket,address=5005,server=y,suspend=n"
 ```
 5. Run the `Debug Kotlin Plugin` configuration in Debug mode.
