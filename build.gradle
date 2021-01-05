@@ -7,7 +7,6 @@ repositories {
 }
 
 subprojects {
-    apply plugin: "maven"
     repositories {
         mavenCentral()
     }

@@ -1,7 +1,7 @@
 plugins {
     id 'org.jetbrains.kotlin.jvm'
-    id "org.jetbrains.kotlin.kapt"
     id 'java-gradle-plugin'
+    id 'maven-publish'
 }
 
 group 'ktargeter'
@@ -19,6 +19,15 @@ gradlePlugin {
 dependencies {
     implementation "org.jetbrains.kotlin:kotlin-stdlib"
     implementation "org.jetbrains.kotlin:kotlin-gradle-plugin-api:${kotlinVersion}"
-    compileOnly "com.google.auto.service:auto-service:1.0-rc7"
-    kapt "com.google.auto.service:auto-service:1.0-rc7"
+}
+
+publishing {
+    publications {
+        maven(MavenPublication) {
+            groupId 'ktargeter'
+            artifactId 'gradle-plugin'
+            version '0.1.0'
+            from components.java
+        }
+    }
 }
