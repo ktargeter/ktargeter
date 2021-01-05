@@ -1,6 +1,7 @@
 plugins {
     id 'org.jetbrains.kotlin.jvm'
-    id "org.jetbrains.kotlin.kapt"
+    id 'org.jetbrains.kotlin.kapt'
+    id 'maven-publish'
 }
 
 group 'ktargeter'
@@ -11,4 +12,15 @@ dependencies {
     compileOnly "org.jetbrains.kotlin:kotlin-compiler-embeddable:$kotlinVersion"
     compileOnly "com.google.auto.service:auto-service:1.0-rc7"
     kapt "com.google.auto.service:auto-service:1.0-rc7"
+}
+
+publishing {
+    publications {
+        maven(MavenPublication) {
+            groupId 'ktargeter'
+            artifactId 'kotlin-plugin'
+            version '0.1.0'
+            from components.java
+        }
+    }
 }

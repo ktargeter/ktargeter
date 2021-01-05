@@ -12,9 +12,9 @@ throughout your code. Ktargeter works during compilation and adds zero overhead 
 
 ## How to debug locally
 
-1. Install Gradle and Kotlin plugins into the local Maven repository
+1. Install Gradle and Kotlin plugins into the local Maven repository:
 ```sh
-./gradlew :kotlin-plugin:install :gradle-plugin:install
+./gradlew publishToMavenLocal
 ```
 
 2. Import the project to IntelliJ IDEA (the `Debug Kotlin Plugin` configuration
