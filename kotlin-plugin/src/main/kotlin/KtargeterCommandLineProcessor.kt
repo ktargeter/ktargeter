@@ -1,13 +1,11 @@
 package ktargeter
 
-import com.google.auto.service.AutoService
 import org.jetbrains.kotlin.compiler.plugin.AbstractCliOption
 import org.jetbrains.kotlin.compiler.plugin.CliOption
 import org.jetbrains.kotlin.compiler.plugin.CommandLineProcessor
 import org.jetbrains.kotlin.config.CompilerConfiguration
 import org.jetbrains.kotlin.config.CompilerConfigurationKey
 
-@AutoService(CommandLineProcessor::class)
 class KtargeterCommandLineProcessor : CommandLineProcessor {
     override val pluginId = "ktargeter"
 
@@ -20,7 +18,7 @@ class KtargeterCommandLineProcessor : CommandLineProcessor {
         CliOption(
             optionName = "ktargeterAnnotation",
             valueDescription = "<annotation>",
-            description = "fully qualified names of the annotations to use to change targets",
+            description = "annotation names in format <target>:<fully qualified annotation name>",
             required = true,
             allowMultipleOccurrences = true
         )
