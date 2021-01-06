@@ -24,13 +24,15 @@ class KtargeterGradleSubplugin : KotlinGradleSubplugin<AbstractCompile> {
         val extension = project.extensions.findByType(
             KtargeterGradleExtension::class.java
         ) ?: KtargeterGradleExtension()
-
+        val supportedTargets = setOf("get", "set", "field")
+        extension.annotations.values.toSet().forEach {
+            if (it !in supportedTargets) error("annotation target $it is not supported")
+        }
         if (extension.enabled && extension.annotations.isEmpty()) {
             error("ktargeter is enabled, but no annotations were set")
         }
-
         val annotationOptions = extension.annotations.map {
-            SubpluginOption(key = "ktargeterAnnotation", value = it)
+            SubpluginOption(key = "ktargeterAnnotation", value = "${it.value}:${it.key}")
         }
         val enabledOption = SubpluginOption(key = "enabled", value = extension.enabled.toString())
         return annotationOptions + enabledOption

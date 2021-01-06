@@ -2,5 +2,5 @@ package ktargeter
 
 open class KtargeterGradleExtension {
     var enabled: Boolean = true
-    var annotations: List<String> = emptyList()
+    var annotations: Map<String, String> = emptyMap()
 }
