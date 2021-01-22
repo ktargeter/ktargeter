@@ -1,4 +1,4 @@
-package ktargeter
+package org.ktargeter
 
 import org.jetbrains.kotlin.backend.common.IrElementTransformerVoidWithContext
 import org.jetbrains.kotlin.ir.IrStatement
@@ -17,7 +17,7 @@ class KtargeterTransformer(
 ) : IrElementTransformerVoidWithContext() {
 
     override fun visitConstructor(declaration: IrConstructor): IrStatement {
-        declaration.withParentCalss { parent ->
+        declaration.withParentClass { parent ->
             declaration.valueParameters.forEach { param ->
                 parent.withProperty(param.name) { property ->
                     param.annotations.forEach { annotation ->
@@ -49,7 +49,7 @@ class KtargeterTransformer(
             ?.let { it.packageFqName + "." + it.shortName }
     }
 
-    private fun IrConstructor.withParentCalss(block: (IrClassImpl) -> Unit) =
+    private fun IrConstructor.withParentClass(block: (IrClassImpl) -> Unit) =
         when (val parent = this.parent) {
             is IrClassImpl -> block(parent)
             else -> Unit

@@ -1,4 +1,4 @@
-package ktargeter
+package org.ktargeter
 
 import org.jetbrains.kotlin.backend.common.extensions.IrGenerationExtension
 import org.jetbrains.kotlin.com.intellij.mock.MockProject

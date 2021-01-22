@@ -3,7 +3,7 @@ plugins {
     id 'maven-publish'
 }
 
-group 'ktargeter'
+group 'org.ktargeter'
 version '0.1.0'
 
 dependencies {
@@ -14,7 +14,7 @@ dependencies {
 publishing {
     publications {
         maven(MavenPublication) {
-            groupId 'ktargeter'
+            groupId 'org.ktargeter'
             artifactId 'kotlin-plugin'
             version '0.1.0'
             from components.java

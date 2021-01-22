@@ -4,14 +4,14 @@ plugins {
     id 'maven-publish'
 }
 
-group 'ktargeter'
+group 'org.ktargeter'
 version '0.1.0'
 
 gradlePlugin {
     plugins {
         simplePlugin {
-            id = "ktargeter.plugin"
-            implementationClass = "ktargeter.KtargeterGradlePlugin"
+            id = "org.ktargeter"
+            implementationClass = "org.ktargeter.KtargeterGradlePlugin"
         }
     }
 }
@@ -24,7 +24,7 @@ dependencies {
 publishing {
     publications {
         maven(MavenPublication) {
-            groupId 'ktargeter'
+            groupId 'org.ktargeter'
             artifactId 'gradle-plugin'
             version '0.1.0'
             from components.java

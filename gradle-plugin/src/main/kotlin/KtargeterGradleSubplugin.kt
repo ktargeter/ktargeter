@@ -1,4 +1,4 @@
-package ktargeter
+package org.ktargeter
 
 import org.gradle.api.Project
 import org.gradle.api.tasks.compile.AbstractCompile
@@ -41,7 +41,7 @@ class KtargeterGradleSubplugin : KotlinGradleSubplugin<AbstractCompile> {
     override fun getCompilerPluginId() = "ktargeter"
 
     override fun getPluginArtifact() = SubpluginArtifact(
-        groupId = "ktargeter",
+        groupId = "org.ktargeter",
         artifactId = "kotlin-plugin",
         version = "0.1.0"
     )
