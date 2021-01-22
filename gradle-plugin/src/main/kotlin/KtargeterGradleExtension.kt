@@ -1,4 +1,4 @@
-package ktargeter
+package org.ktargeter
 
 open class KtargeterGradleExtension {
     var enabled: Boolean = true

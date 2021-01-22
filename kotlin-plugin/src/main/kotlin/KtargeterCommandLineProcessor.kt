@@ -1,4 +1,4 @@
-package ktargeter
+package org.ktargeter
 
 import org.jetbrains.kotlin.compiler.plugin.AbstractCliOption
 import org.jetbrains.kotlin.compiler.plugin.CliOption
