@@ -10,11 +10,11 @@ class KtargeterComponentRegistrar : ComponentRegistrar {
         project: MockProject,
         configuration: CompilerConfiguration
     ) {
-        if (configuration[KEY_ENABLED] == false) return
-        val extension = KtargeterExtension(
-            ktargeterAnnotations = configuration[KEY_ANNOTATIONS]
-                ?: error("ktargeter plugin requires at least one annotation class option passed to it")
+        val annotations = configuration[KEY_ANNOTATIONS] ?: return
+        val annotationMapping = annotations.associateBy(
+            { it.substringAfter(':') },
+            { it.substringBefore(':') }
         )
-        IrGenerationExtension.registerExtension(project, extension)
+        IrGenerationExtension.registerExtension(project, KtargeterExtension(annotationMapping))
     }
 }
