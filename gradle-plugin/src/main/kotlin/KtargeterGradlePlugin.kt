@@ -21,14 +21,10 @@ class KtargeterGradlePlugin : KotlinCompilerPluginSupportPlugin {
         extension.annotations.values.toSet().forEach {
             if (it !in supportedTargets) error("annotation target $it is not supported")
         }
-        if (extension.enabled && extension.annotations.isEmpty()) {
-            error("ktargeter is enabled, but no annotations were set")
-        }
         val annotationOptions = extension.annotations.map {
             SubpluginOption(key = "ktargeterAnnotation", value = "${it.value}:${it.key}")
         }
-        val enabledOption = SubpluginOption(key = "enabled", value = extension.enabled.toString())
-        return project.provider { annotationOptions + enabledOption }
+        return project.provider { annotationOptions }
     }
 
     override fun apply(target: Project): Unit = with(target) {
