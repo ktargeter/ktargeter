@@ -50,14 +50,11 @@ compileKotlin {
 
 Define annotations with new targets in the following way:
 ```
-ktargeter {
-    enabled = true
-    annotations = [
-            "com.sample.AnnotationOne"  : "get",
-            "com.sample.AnnotationTwo"  : "field",
-            "com.sample.AnnotationThree": "set"
-    ]
-}
+ktargeter.annotations = [
+        "com.sample.AnnotationOne"  : "get",
+        "com.sample.AnnotationTwo"  : "field",
+        "com.sample.AnnotationThree": "set"
+]
 ```
 
 This will instruct the plugin to override use-site targets for the
@@ -84,7 +81,7 @@ In order to debug/develop ktargeter, use the following steps:
 2. Import the project to IntelliJ IDEA (the `Debug Kotlin Plugin` configuration
 should be available in Run/Debug configuration box).
 
-3. Add breakpoints to the classes in the `kotlin-plugin` module.
+3. Add breakpoints to the classes in the `compiler-plugin` module.
 
 4. Clone and build [the sample project](https://github.com/ktargeter/ktargeter-sample)
 with the following command:
