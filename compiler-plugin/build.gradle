@@ -15,7 +15,7 @@ publishing {
     publications {
         maven(MavenPublication) {
             groupId 'org.ktargeter'
-            artifactId 'kotlin-plugin'
+            artifactId 'compiler-plugin'
             version '0.1.0'
             from components.java
         }

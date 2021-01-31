@@ -38,7 +38,7 @@ class KtargeterGradlePlugin : KotlinCompilerPluginSupportPlugin {
 
     override fun getPluginArtifact() = SubpluginArtifact(
         groupId = "org.ktargeter",
-        artifactId = "kotlin-plugin",
+        artifactId = "compiler-plugin",
         version = "0.1.0"
     )
 }
