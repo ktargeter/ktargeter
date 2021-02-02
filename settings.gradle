@@ -1,3 +1,10 @@
+pluginManagement {
+    repositories {
+        jcenter()
+        gradlePluginPortal()
+    }
+}
+
 rootProject.name = 'ktargeter'
 include 'gradle-plugin'
 include 'compiler-plugin'

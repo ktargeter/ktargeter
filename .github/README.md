@@ -42,14 +42,14 @@ plugins {
 }
 ```
 Enable IR compilation (IR will be a default in Kotlin 1.5, it is in beta in Kotlin 1.4):
-``` 
+```gradle
 compileKotlin {
     kotlinOptions.useIR = true
 }
 ```
 
 Define annotations with new targets in the following way:
-```
+```gradle
 ktargeter.annotations = [
         "com.sample.AnnotationOne"  : "get",
         "com.sample.AnnotationTwo"  : "field",

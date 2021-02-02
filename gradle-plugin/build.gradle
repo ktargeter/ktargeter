@@ -1,33 +1,30 @@
 plugins {
     id 'org.jetbrains.kotlin.jvm'
+    id "com.vanniktech.maven.publish"
     id 'java-gradle-plugin'
-    id 'maven-publish'
 }
 
 group 'org.ktargeter'
 version '0.1.0'
-
-gradlePlugin {
-    plugins {
-        simplePlugin {
-            id = "org.ktargeter"
-            implementationClass = "org.ktargeter.KtargeterGradlePlugin"
-        }
-    }
-}
 
 dependencies {
     implementation "org.jetbrains.kotlin:kotlin-stdlib"
     implementation "org.jetbrains.kotlin:kotlin-gradle-plugin-api:${kotlinVersion}"
 }
 
-publishing {
-    publications {
-        maven(MavenPublication) {
-            groupId 'org.ktargeter'
-            artifactId 'gradle-plugin'
-            version '0.1.0'
-            from components.java
+gradlePlugin {
+    plugins {
+        simplePlugin {
+            id = "org.ktargeter"
+            displayName = "Ktargeter Gradle Plugin"
+            description = "Ktargeter allows overriding annotations' use-site targets"
+            implementationClass = "org.ktargeter.KtargeterGradlePlugin"
         }
     }
+}
+
+signing {
+    def signingKey = findProperty('signingKey')
+    def signingPassword = findProperty('signingPass')
+    useInMemoryPgpKeys(signingKey, signingPassword)
 }
