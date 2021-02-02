@@ -1,6 +1,6 @@
 plugins {
     id 'org.jetbrains.kotlin.jvm'
-    id 'maven-publish'
+    id "com.vanniktech.maven.publish"
 }
 
 group 'org.ktargeter'
@@ -11,13 +11,8 @@ dependencies {
     compileOnly "org.jetbrains.kotlin:kotlin-compiler-embeddable:$kotlinVersion"
 }
 
-publishing {
-    publications {
-        maven(MavenPublication) {
-            groupId 'org.ktargeter'
-            artifactId 'compiler-plugin'
-            version '0.1.0'
-            from components.java
-        }
-    }
+signing {
+    def signingKey = findProperty('signingKey')
+    def signingPassword = findProperty('signingPass')
+    useInMemoryPgpKeys(signingKey, signingPassword)
 }
