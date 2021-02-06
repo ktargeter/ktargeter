@@ -1,47 +1,49 @@
-# ktargeter [![build](https://github.com/ktargeter/ktargeter/workflows/build/badge.svg)](https://github.com/ktargeter/ktargeter/actions?query=workflow%3Abuild) [![GitHub License](https://img.shields.io/badge/license-Apache%20License%202.0-blue.svg?style=flat)](https://www.apache.org/licenses/LICENSE-2.0)
+# ktargeter [![build](https://github.com/ktargeter/ktargeter/workflows/build/badge.svg)](https://github.com/ktargeter/ktargeter/actions?query=workflow%3Abuild) [![Maven Central](https://maven-badges.herokuapp.com/maven-central/org.ktargeter/gradle-plugin/badge.svg)](https://search.maven.org/artifact/org.ktargeter/gradle-plugin) [![GitHub License](https://img.shields.io/badge/license-Apache%20License%202.0-blue.svg?style=flat)](https://www.apache.org/licenses/LICENSE-2.0)
 
 <img src="logo.svg" align="right" width="150px" alt="ktargeter logo">
 
-Using Java annotations in Kotlin code often requires specifying
-[use-site targets](https://kotlinlang.org/docs/reference/annotations.html#annotation-use-site-targets).
-Because there might be multiple Java elements which are generated from the corresponding Kotlin element,
-you have to memorize which use-site target is used for a particular annotation. Ktargeter allows overriding
-them during compilation to prevent mistakes and make code as simple as possible. You don't have to remember
-whether it is `@get:Email`, `@field:Email`, or `@set:Email`. You can configure it in Gradle and use `@Email`
-throughout your code. Ktargeter works during compilation and adds no overhead in runtime.
+Ktargeter is a Kotlin compiler plugin that allows overriding annotation use-site
+targets for properties. Using Java annotations in Kotlin code often requires
+specifying use-site targets, which is inconvenient and leads to bugs in runtime when
+a target is not specified. Instead of memorizing whether it is `@get:Email`,
+`@field:Email`, or `@set:Email`. You can configure it once in Gradle and use `@Email`
+throughout your code. Ktargeter works during compilation and adds no overhead
+in runtime.
 
-Instead of defining annotations like this:
+As an example, you can rutn this code:
 ```kotlin
 data class User(
-    @get:AnnotationOne
+    @get:One
     val firstName: String,
-    @field:AnnotationTwo
+    @field:Two
     val lastName: String,
-    @set:AnnotationThree
+    @set:Three
     var birthday: LocalDate,     
 )
 ```
-with ktargeter, you can define them like this:
+into this:
 
 ```kotlin
 data class User(
-    @AnnotationOne
+    @One
     val firstName: String,
-    @AnnotationTwo
+    @Two
     val lastName: String,
-    @AnnotationThree
+    @Three
     var birthday: LocalDate,     
 )
 ```
 
 ## Usage
-Add ktargeter to the `plugins` section of `build.gradle`:
+You have to have Kotlin 1.4 or later.
+
+Add ktargeter to the `plugins` section of your `build.gradle`:
 ```gradle
 plugins {
     id 'org.ktargeter' version '0.1.0'
 }
 ```
-Enable IR compilation (IR will be a default in Kotlin 1.5, it is in beta in Kotlin 1.4):
+Enable IR compilation:
 ```gradle
 compileKotlin {
     kotlinOptions.useIR = true
@@ -51,9 +53,9 @@ compileKotlin {
 Define annotations with new targets in the following way:
 ```gradle
 ktargeter.annotations = [
-        "com.sample.AnnotationOne"  : "get",
-        "com.sample.AnnotationTwo"  : "field",
-        "com.sample.AnnotationThree": "set"
+        "com.sample.annotations.One"  : "get",
+        "com.sample.annotations.Two"  : "field",
+        "com.sample.annotations.Three": "set"
 ]
 ```
 
@@ -63,9 +65,12 @@ specified annotations when they are used on properties.
 Ktargeter will not override targets of annotations that specify
 their targets explicitly. 
 
+Note: Ktargeter uses Kotlin IR backend which is in beta in Kotlin 1.4
+and will be a default in Kotlin 1.5.
+
 ## Contributing
 
-If you found a bug or have an idea on how to improve ktargeter
+If you found a bug or have an idea on how to improve ktargeter feel
 free to open an issue. You can also propose your changes via
 a Pull Request.
 
@@ -75,7 +80,8 @@ In order to debug/develop ktargeter, use the following steps:
 
 1. Install Gradle and Kotlin plugins into the local Maven repository:
 ```sh
-./gradlew publishToMavenLocal
+./gradlew publishToMavenLocal -x signMavenPublication \
+ -x signPluginMavenPublication -x signSimplePluginPluginMarkerMavenPublication
 ```
 
 2. Import the project to IntelliJ IDEA (the `Debug Kotlin Plugin` configuration
@@ -84,10 +90,10 @@ should be available in Run/Debug configuration box).
 3. Add breakpoints to the classes in the `compiler-plugin` module.
 
 4. Clone and build [the sample project](https://github.com/ktargeter/ktargeter-sample)
-with the following command:
+using the following command:
 ```sh
 ./gradlew clean build --no-daemon -Dorg.gradle.debug=true \
-  -Dkotlin.compiler.execution.strategy="in-process" \
-  -Dkotlin.daemon.jvm.options="-Xdebug,-Xrunjdwp:transport=dt_socket,address=5005,server=y,suspend=n"
+ -Dkotlin.compiler.execution.strategy="in-process" \
+ -Dkotlin.daemon.jvm.options="-Xdebug,-Xrunjdwp:transport=dt_socket,address=5005,server=y,suspend=n"
 ```
 5. Run the `Debug Kotlin Plugin` configuration in Debug mode.
