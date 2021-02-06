@@ -10,7 +10,7 @@ a target is not specified. Instead of memorizing whether it is `@get:Email`,
 throughout your code. Ktargeter works during compilation and adds no overhead
 in runtime.
 
-As an example, you can rutn this code:
+As an example, you can replace this code:
 ```kotlin
 data class User(
     @get:One
