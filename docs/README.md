@@ -21,7 +21,7 @@ data class User(
     var birthday: LocalDate,     
 )
 ```
-into this:
+with this:
 
 ```kotlin
 data class User(
