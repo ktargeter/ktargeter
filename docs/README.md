@@ -35,18 +35,13 @@ data class User(
 ```
 
 ## Usage
-You have to have Kotlin 1.4 or later.
+You have to have Kotlin 1.5 or later (or Kotlin 1.4 
+[with JVM IR backend enabled](https://kotlinlang.org/docs/whatsnew1430.html#jvm-ir-compiler-backend-reaches-beta)).
 
 Add ktargeter to the `plugins` section of your `build.gradle`:
 ```gradle
 plugins {
     id 'org.ktargeter' version '0.1.0'
-}
-```
-Enable IR compilation:
-```gradle
-compileKotlin {
-    kotlinOptions.useIR = true
 }
 ```
 
@@ -63,10 +58,7 @@ This will instruct the plugin to override use-site targets for the
 specified annotations when they are used on properties.
 
 Ktargeter will not override targets of annotations that specify
-their targets explicitly. 
-
-Note: Ktargeter uses Kotlin IR backend which is in beta in Kotlin 1.4
-and will be a default in Kotlin 1.5.
+their targets explicitly.
 
 ## Contributing
 
