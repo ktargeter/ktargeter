@@ -7,7 +7,6 @@ plugins {
 subprojects {
     repositories {
         mavenCentral()
-        jcenter()
     }
 
     tasks.withType(org.jetbrains.kotlin.gradle.tasks.KotlinCompile).configureEach {
