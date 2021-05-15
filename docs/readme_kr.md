@@ -78,8 +78,7 @@ Ktargeter를 디버그 또는 개발한다면 다음의 방법을 이용해주�
 
 3. 'compiler-plugin' 모듈의 클래스에 중단점을 추가합니다.
 
-4. [the sample project](https://github.com/ktargeter/ktargeter-sample)
-다음 명령을 사용하여 복제 및 빌드합니다.:
+4. 다음 명령을 사용하여 복제 및 빌드합니다. [샘플 프로젝트](https://github.com/ktargeter/ktargeter-sample):
 ```sh
 ./gradlew clean build --no-daemon -Dorg.gradle.debug=true \
  -Dkotlin.compiler.execution.strategy="in-process" \
