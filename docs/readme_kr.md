@@ -73,8 +73,8 @@ Ktargeter를 디버그 또는 개발한다면 다음의 방법을 이용해주�
  -x signPluginMavenPublication -x signSimplePluginPluginMarkerMavenPublication
 ```
 
-2. 프로젝트를 IntelliJ IDEA('Debug Kotlin Plugin' 환경*)에서 Import합니다.
-    * Run/Debug Configuration 창에서 사용 가능해야 합니다.
+2. 프로젝트를 IntelliJ IDEA('Debug Kotlin Plugin' 환경)에서 Import합니다.
+   - Run/Debug Configuration 창에서 사용 가능해야 합니다.
 
 3. 'compiler-plugin' 모듈의 클래스에 중단점을 추가합니다.
 
