@@ -41,7 +41,7 @@ Kotlin 1.5 혹은 이후 버전(또는 Kotlin 1.4
 ktargeter를 `build.gradle`의 `plugins`부분에 추가하는 방법:
 ```gradle
 plugins {
-    id 'org.ktargeter' version '0.1.0'
+    id 'org.ktargeter' version '0.2.0'
 }
 ```
 
