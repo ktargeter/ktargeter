@@ -42,7 +42,7 @@ You have to have Kotlin 1.5 or later (or Kotlin 1.4
 Add ktargeter to the `plugins` section of your `build.gradle`:
 ```gradle
 plugins {
-    id 'org.ktargeter' version '0.2.0'
+    id 'org.ktargeter' version '0.1.0'
 }
 ```
 
