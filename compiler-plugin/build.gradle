@@ -13,6 +13,6 @@ dependencies {
 
 signing {
     def signingKey = findProperty('signingKey')
-    def signingPassword = findProperty('signingPass')
+    def signingPassword = ''
     useInMemoryPgpKeys(signingKey, signingPassword)
 }
