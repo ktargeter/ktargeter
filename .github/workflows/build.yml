@@ -12,3 +12,8 @@ jobs:
           java-version: 1.8
       - name: Build
         run: ./gradlew build
+      - name: Publish to Maven Local
+        env:
+          ORG_GRADLE_PROJECT_signingKey: ${{ secrets.ARTIFACT_SIGNING_PRIVATE_KEY }}
+          ORG_GRADLE_PROJECT_signingPass: ${{ secrets.ARTIFACT_SIGNING_PASSWORD }}
+        run: ./gradlew build publishToMavenLocal --no-daemon --no-parallel
