@@ -1,7 +1,7 @@
 plugins {
     id 'org.jetbrains.kotlin.jvm' version "${kotlinVersion}" apply false
-    id 'org.jetbrains.dokka' version '1.4.32' apply false
-    id "com.vanniktech.maven.publish" version '0.15.1' apply false
+    id 'org.jetbrains.dokka' version '1.5.0' apply false
+    id "com.vanniktech.maven.publish" version '0.17.0' apply false
 }
 
 subprojects {
