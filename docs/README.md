@@ -42,7 +42,7 @@ You have to have Kotlin 1.5 or later (or Kotlin 1.4
 Add ktargeter to the `plugins` section of your `build.gradle`:
 ```gradle
 plugins {
-    id 'org.ktargeter' version '0.2.1'
+    id 'org.ktargeter' version '0.3.0'
 }
 ```
 
@@ -82,8 +82,8 @@ should be available in Run/Debug configuration box).
 
 3. Add breakpoints to the classes in the `compiler-plugin` module.
 
-4. Clone and build [the sample project](https://github.com/ktargeter/ktargeter-sample)
-using the following command:
+4. Clone [the sample project](https://github.com/ktargeter/ktargeter-sample)
+and build it using the following command:
 ```sh
 ./gradlew clean build --no-daemon -Dorg.gradle.debug=true \
  -Dkotlin.compiler.execution.strategy="in-process" \
