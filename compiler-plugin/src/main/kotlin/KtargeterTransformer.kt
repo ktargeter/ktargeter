@@ -45,7 +45,7 @@ class KtargeterTransformer(
 
     private fun IrConstructorCall.fqName(): String? {
         return this.type.safeAs<IrSimpleTypeImpl>()
-            ?.classifier?.signature?.safeAs<IdSignature.PublicSignature>()
+            ?.classifier?.signature?.safeAs<IdSignature.CommonSignature>()
             ?.let { it.packageFqName + "." + it.shortName }
     }
 
