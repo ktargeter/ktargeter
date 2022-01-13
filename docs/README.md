@@ -42,7 +42,7 @@ You have to have Kotlin 1.5 or later (or Kotlin 1.4
 Add ktargeter to the `plugins` section of your `build.gradle`:
 ```gradle
 plugins {
-    id 'org.ktargeter' version '0.2.1'
+    id 'org.ktargeter' version '0.3.0'
 }
 ```
 
@@ -60,6 +60,31 @@ specified annotations when they are used on properties.
 
 Ktargeter will not override targets of annotations that specify
 their targets explicitly.
+
+## Compatibility
+
+Pick a plugin version depending on the Kotlin version used in your project.
+
+<table>
+    <thead align="center">
+        <td><b>Kotlin version</b></td>
+        <td><b>Ktargeter version</b></td>
+    </thead>
+    <tbody>
+    <tr>
+        <td>Kotlin 1.6 or newer</td>
+        <td>Ktargeter 0.3.0</td>
+    </tr>
+    <tr>
+        <td>Kotlin 1.5</td>
+        <td>Ktargeter 0.2.1</td>
+    </tr>
+    <tr>
+        <td>Kotlin 1.4</td>
+        <td>Ktargeter 0.1.0</td>
+    </tr>
+    </tbody>
+</table>
 
 ## Contributing
 

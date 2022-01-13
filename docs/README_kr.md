@@ -41,7 +41,7 @@ Kotlin 1.5 혹은 이후 버전(또는 Kotlin 1.4
 ktargeter를 `build.gradle`의 `plugins`부분에 추가하는 방법:
 ```gradle
 plugins {
-    id 'org.ktargeter' version '0.2.1'
+    id 'org.ktargeter' version '0.3.0'
 }
 ```
 
@@ -57,6 +57,31 @@ ktargeter.annotations = [
 지정된 annotation들을 properties에 사용할 때, 이 annotation에 대한 use-site targets을 재정의하는 플러그인입니다.
 
 Ktargeter는 target을 명시적으로 지정하는 annotations의 target들을 재정의하지 않습니다. 
+
+## Compatibility
+
+Pick a plugin version depending on the Kotlin version used in your project.
+
+<table>
+    <thead align="center">
+        <td><b>Kotlin version</b></td>
+        <td><b>Ktargeter version</b></td>
+    </thead>
+    <tbody>
+    <tr>
+        <td>Kotlin 1.6 or newer</td>
+        <td>Ktargeter 0.3.0</td>
+    </tr>
+    <tr>
+        <td>Kotlin 1.5</td>
+        <td>Ktargeter 0.2.1</td>
+    </tr>
+    <tr>
+        <td>Kotlin 1.4</td>
+        <td>Ktargeter 0.1.0</td>
+    </tr>
+    </tbody>
+</table>
 
 ## 기여
 
