@@ -36,8 +36,7 @@ data class User(
 ```
 
 ## Usage
-You have to have Kotlin 1.5 or later (or Kotlin 1.4 
-[with JVM IR backend enabled](https://kotlinlang.org/docs/whatsnew1430.html#jvm-ir-compiler-backend-reaches-beta)).
+Supported Kotlin versions: 1.4, 1.5, and 1.6.
 
 Add ktargeter to the `plugins` section of your `build.gradle`:
 ```gradle
