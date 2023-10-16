@@ -1,4 +1,4 @@
-# ktargeter [![build](https://github.com/ktargeter/ktargeter/workflows/build/badge.svg)](https://github.com/ktargeter/ktargeter/actions?query=workflow%3Abuild) [![Maven Central](https://maven-badges.herokuapp.com/maven-central/org.ktargeter/gradle-plugin/badge.svg)](https://search.maven.org/artifact/org.ktargeter/gradle-plugin) [![GitHub License](https://img.shields.io/badge/license-Apache%20License%202.0-blue.svg?style=flat)](https://www.apache.org/licenses/LICENSE-2.0)
+# ktargeter [![build](https://github.com/ktargeter/ktargeter/workflows/build/badge.svg)](https://github.com/ktargeter/ktargeter/actions?query=workflow%3Abuild)[![Maven Central](https://img.shields.io/maven-central/v/org.ktargeter/gradle-plugin?color=green)](https://search.maven.org/artifact/org.ktargeter/gradle-plugin) [![GitHub License](https://img.shields.io/badge/license-Apache%20License%202.0-blue.svg?style=flat)](https://www.apache.org/licenses/LICENSE-2.0)
 <a href="https://github.com/ktargeter/ktargeter#ktargeter---">English</a> | 한국어
 
 <img src="./logo.svg" align="right" width="150px" alt="ktargeter logo">
